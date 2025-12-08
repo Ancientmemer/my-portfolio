@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Adhin Santhosh — Portfolio</title>
 <link rel="icon" href="data:,">
+
 <style>
   :root{
     /* Mr Eldro inspired warm palette */
@@ -80,42 +81,10 @@
   .socials a { display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:inherit; opacity:0.95; }
   .socials svg{ width:22px; height:22px; display:block; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4)); }
 
-  .skills-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(140px,1fr)); gap:12px; width:100%; }
-  .skill { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius: 12px; padding:12px; border:1px solid rgba(255,255,255,0.04); text-align:center; }
-  .skill strong{ display:block; font-size:16px; margin-bottom:6px; }
-  .skill small{ color:var(--muted); font-size:13px; }
-
-  .projects { display:grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap:14px; width:100%; }
-  .project { border-radius:12px; overflow:hidden; background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.15)); padding:12px; min-height:160px; display:flex; flex-direction:column; justify-content:space-between; border:1px solid rgba(255,255,255,0.04); }
-  .project h3{ margin:0 0 8px 0; font-size:16px; }
-  .project p{ margin:0; color:var(--muted); font-size:14px; }
-  .project .thumb { width:100%; height:120px; border-radius:10px; overflow:hidden; margin-bottom:10px; background:#111; display:block; }
-
-  .contact-grid { display:grid; grid-template-columns: 1fr 360px; gap:18px; width:100%; }
-  @media(max-width:880px){ .contact-grid { grid-template-columns: 1fr; } .hero .right { width: 280px; max-width: 100%; } .avatar { width:180px; height:180px; } }
-
-  .bottom-nav { position:fixed; left:50%; transform:translateX(-50%); bottom:14px; z-index:80; display:flex; gap:10px; background: linear-gradient(180deg, rgba(10,12,15,0.65), rgba(10,12,15,0.5)); border-radius: 999px; padding:8px; border:1px solid rgba(255,255,255,0.06); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
-  .nav-btn { min-width:86px; padding:10px 14px; border-radius:999px; border: none; background: transparent; color:var(--muted); font-weight:600; cursor:pointer; display:inline-flex; gap:10px; align-items:center; justify-content:center; transition: transform 220ms ease, background 220ms ease, color 220ms ease; user-select:none; font-size:14px; }
-  .nav-btn:hover{ transform: translateY(-6px); color: white; }
-  .nav-btn.active { background: linear-gradient(90deg, rgba(255,207,51,0.12), rgba(255,90,60,0.08)); color: white; box-shadow: 0 6px 18px rgba(255,150,90,0.06); }
-
   .section-title{ font-size:18px; color:var(--muted); margin-bottom:10px; }
-  @keyframes floaty { 0% { transform: translateY(0);} 50%{ transform: translateY(-6px);} 100%{ transform: translateY(0);} }
-  .avatar { animation: floaty 6s ease-in-out infinite; }
-  .nav-pulse { position:absolute; inset:0; border-radius:inherit; pointer-events:none; animation: navPulse 600ms ease; background: radial-gradient(circle at 10% 10%, rgba(255,207,51,0.06), transparent 15%); }
-  @keyframes navPulse { from { opacity:1; transform: scale(0.92);} to { opacity:0; transform: scale(1.18);} }
-  .muted{ color:var(--muted); }
-  .btn-primary{ background: linear-gradient(90deg,var(--accent1),var(--accent2)); color:#081018; padding:10px 14px; border-radius:10px; border:none; cursor:pointer; font-weight:700; }
-  footer.small { text-align:center; color:var(--muted); margin-top:12px; font-size:13px; }
-
-  /* small responsive tweaks */
-  @media(max-width:520px){
-    .nav-btn { min-width:68px; padding:8px 10px; font-size:13px; }
-    .avatar { width:160px; height:160px; }
-  }
-
 </style>
 </head>
+
 <body>
 
 <script>
@@ -125,157 +94,162 @@
 const CONFIG = {
   name: "Adhin Santhosh",
   tagline: "Front-end dev • Video & Image Editor • UI enthusiast",
-  // profile photo (square recommended)
   photo: "https://graph.org/file/45fe2a7b75a1d47e0a1a2-f3e051c26b069156e0.jpg",
   email: "adhynsanthosh@gmail.com",
   location: "Kollam, India",
+
   socials: {
-    linkedin: "https://www.linkedin.com/in/adhin-santhosh-770709392?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    linkedin: "https://www.linkedin.com/in/adhin-santhosh-770709392",
     instagram: "https://instagram.com/iam_eldro",
     github: "https://github.com/Adhin-Santhosh"
   },
+
   skills: [
     {title:"HTML, CSS", subtitle:"Responsive layouts"},
-    {title:"Python, C++, C", subtitle:"General programming & scripting"},
-    {title:"Communication", subtitle:"Strong verbal & written skills"},
-    {title:"Problem Solving", subtitle:"Algorithms & debugging"}
+    {title:"Python, C++, C", subtitle:"General programming"},
+    {title:"Communication", subtitle:"Strong soft skills"},
+    {title:"Problem Solving", subtitle:"Algorithms & logic"}
   ],
+
   projects: [
     {
       title:"Glyphmoji",
-      desc:"Website — creative emoji & glyph tool.",
+      desc:"Creative emoji & glyph generator website.",
       url:"https://glyphmoji.vercel.app",
-      thumb: "https://graph.org/file/c64d5bd5d9945fc34cc9c-4e4237f9737d45c2d5.jpg"
+      thumb:"https://graph.org/file/c64d5bd5d9945fc34cc9c-4e4237f9737d45c2d5.jpg"
     },
     {
       title:"Auto Filter Bot",
-      desc:"Telegram Auto Filter Bot — moderation & filtering.",
+      desc:"Telegram auto-filter bot with advanced features.",
       url:"https://t.me/cc_autobot",
-      thumb: "https://graph.org/file/527648cd999d63aaa710b-23fa9b2465fdbdf814.jpg"
+      thumb:"https://graph.org/file/62dce81f2e8f3b37afaa4-f73b5a9c2699775508.jpg"
     },
     {
       title:"Glyphmoji TG Bot",
-      desc:"Telegram bot for Glyphmoji features.",
+      desc:"Telegram bot extension for Glyphmoji.",
       url:"https://t.me/Glyphmoji_bot",
-      thumb: "https://graph.org/file/62dce81f2e8f3b37afaa4-f73b5a9c2699775508.jpg"
+      thumb:"https://graph.org/file/f30fd710c03e8579242e7-a95f18d8c1f13e9197.jpg"
     },
     {
       title:"Basic Auto Filter Bot (Repo)",
-      desc:"GitHub repo for a basic filter bot.",
+      desc:"Simple GitHub version of Auto Filter Bot.",
       url:"https://github.com/Ancientmemer/eldryo",
-      thumb: "https://graph.org/file/650cad11a60cb6012e0b4-5decd2890448e138bc.jpg"
+      thumb:""
     }
   ],
-  about: "I'm a BCA student at the University of Kerala (UIT Adoor), batch 2025–29. I build front-end interfaces, edit videos and images, and enjoy crafting motion-forward UI. I like solving problems with clean code and practical design — currently open for freelance work and collaborations."
+
+  about:
+`You're a BCA student at the University of Kerala (UIT Adoor), batch 2025–29, exploring front-end development, UI design, and digital editing. 
+You enjoy creating clean modern interfaces, adding motion, and solving problems with practical code. 
+You love learning, building, and growing with every project — and you're open to freelance work and collaborations.`
 };
 /* End CONFIG */
 </script>
 
-<main id="page">
-  <!-- Home -->
-  <section id="home" class="section" data-section>
-    <div class="card hero" role="region" aria-label="Home">
-      <div class="left">
-        <h1 id="display-name">Adhin Santhosh</h1>
-        <div id="display-tagline" class="tagline">Front-end dev • Video & Image Editor • UI enthusiast</div>
+<!-- ================= HOME (SECTION 1) ================= -->
+<section id="home" class="section" data-section>
+  <div class="card hero">
+    <div class="left">
+      <h1 id="display-name"></h1>
+      <div id="display-tagline" class="tagline"></div>
 
-        <div class="section-title">Quick links</div>
-        <div class="socials" id="social-links"></div>
+      <div class="section-title">Quick links</div>
+      <div class="socials" id="social-links"></div>
 
-        <div style="margin-top:20px;">
-          <button class="btn-primary" onclick="scrollToId('projects')">See Projects</button>
-        </div>
-
-        <footer class="small">Designed with glassmorphism • Animations enabled</footer>
-      </div>
-
-      <div class="right">
-        <div class="avatar" title="Your photo">
-          <img id="profile-photo" src="" alt="Profile photo">
-        </div>
+      <div style="margin-top:20px;">
+        <button class="btn-primary" onclick="scrollToId('about')">About Me</button>
       </div>
     </div>
-  </section>
 
-  <!-- Skills -->
-  <section id="skills" class="section" data-section>
-    <div class="card" role="region" aria-label="Skills">
-      <div style="width:100%;">
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
-          <div>
-            <div class="section-title">Skills</div>
-            <h2 style="margin:0 0 10px 0;">What I do</h2>
-            <p class="muted" style="margin:0 0 14px 0;">Front-end, editing, and UI design — I focus on clarity and motion.</p>
+    <div class="right">
+      <div class="avatar">
+        <img id="profile-photo" src="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== ABOUT — NOW SECTION 2 =============== -->
+<section id="about" class="section" data-section>
+  <div class="card">
+    <div style="width:100%;">
+      <div class="section-title">About</div>
+      <h2>A little story</h2>
+      <p id="about-text" class="muted"></p>
+
+      <div style="margin-top:18px; display:flex; gap:12px;">
+        <a class="btn-primary" onclick="scrollToId('projects')">See Work</a>
+        <a class="muted" onclick="scrollToId('contact')">Contact Me</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ================= SKILLS (SECTION 3) ================= -->
+<section id="skills" class="section" data-section>
+  <div class="card" role="region" aria-label="Skills">
+    <div style="width:100%;">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+        <div>
+          <div class="section-title">Skills</div>
+          <h2 style="margin:0 0 10px 0;">What I do</h2>
+          <p class="muted" style="margin:0 0 14px 0;">Front-end, editing, and UI design — I focus on clarity and motion.</p>
+        </div>
+        <div style="display:flex; gap:10px; align-items:center;">
+          <button class="btn-primary" onclick="scrollToId('contact')">Hire Me</button>
+        </div>
+      </div>
+
+      <div class="skills-grid" id="skills-grid" style="margin-top:18px;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS (SECTION 4) ================= -->
+<section id="projects" class="section" data-section>
+  <div class="card" role="region" aria-label="Projects">
+    <div style="width:100%;">
+      <div class="section-title">Projects</div>
+      <h2 style="margin:0 0 10px 0;">Selected Works</h2>
+      <div class="projects" id="projects-list" style="margin-top:12px;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT (SECTION 5) ================= -->
+<section id="contact" class="section" data-section>
+  <div class="card" role="region" aria-label="Contact">
+    <div style="width:100%;">
+      <div class="section-title">Contact</div>
+      <h2 style="margin:0 0 10px 0;">Let's build something</h2>
+      <div class="contact-grid" style="margin-top:12px;">
+        <div>
+          <p class="muted">Prefer email? Drop a message and I’ll reply fast.</p>
+          <p style="margin-top:16px;"><strong>Email</strong><br><a id="email-link" href="#" class="muted"></a></p>
+          <p style="margin-top:10px;"><strong>Location</strong><br><span id="location-text" class="muted"></span></p>
+
+          <div style="margin-top:18px;">
+            <small class="muted">Or reach via socials below</small>
+            <div class="socials" style="margin-top:8px;" id="social-links-2"></div>
           </div>
-          <div style="display:flex; gap:10px; align-items:center;">
-            <button class="btn-primary" onclick="scrollToId('contact')">Hire Me</button>
+        </div>
+
+        <form id="contact-form" style="display:flex; flex-direction:column; gap:10px;">
+          <input required name="name" placeholder="Your name" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;" />
+          <input required name="email" placeholder="Your email" type="email" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;" />
+          <textarea required name="message" placeholder="Brief message" rows="5" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;"></textarea>
+          <div style="display:flex; gap:10px; justify-content:flex-end;">
+            <button type="submit" class="btn-primary">Send</button>
           </div>
-        </div>
-
-        <div class="skills-grid" id="skills-grid" style="margin-top:18px;"></div>
+        </form>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Projects -->
-  <section id="projects" class="section" data-section>
-    <div class="card" role="region" aria-label="Projects">
-      <div style="width:100%;">
-        <div class="section-title">Projects</div>
-        <h2 style="margin:0 0 10px 0;">Selected Works</h2>
-        <div class="projects" id="projects-list" style="margin-top:12px;"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="section" data-section>
-    <div class="card" role="region" aria-label="Contact">
-      <div style="width:100%;">
-        <div class="section-title">Contact</div>
-        <h2 style="margin:0 0 10px 0;">Let's build something</h2>
-        <div class="contact-grid" style="margin-top:12px;">
-          <div>
-            <p class="muted">Prefer email? Drop a message and I’ll reply fast.</p>
-            <p style="margin-top:16px;"><strong>Email</strong><br><a id="email-link" href="#" class="muted">adhynsanthosh@gmail.com</a></p>
-            <p style="margin-top:10px;"><strong>Location</strong><br><span id="location-text" class="muted">Kollam, India</span></p>
-
-            <div style="margin-top:18px;">
-              <small class="muted">Or reach via socials below</small>
-              <div class="socials" style="margin-top:8px;" id="social-links-2"></div>
-            </div>
-          </div>
-
-          <form id="contact-form" style="display:flex; flex-direction:column; gap:10px;">
-            <input required name="name" placeholder="Your name" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;" />
-            <input required name="email" placeholder="Your email" type="email" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;" />
-            <textarea required name="message" placeholder="Brief message" rows="5" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;"></textarea>
-            <div style="display:flex; gap:10px; justify-content:flex-end;">
-              <button type="submit" class="btn-primary">Send</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about" class="section" data-section>
-    <div class="card" role="region" aria-label="About">
-      <div style="width:100%;">
-        <div class="section-title">About</div>
-        <h2 style="margin:0 0 10px 0;">A little story</h2>
-        <p id="about-text" class="muted"></p>
-
-        <div style="margin-top:18px; display:flex; gap:12px;">
-          <a href="#projects" class="btn-primary" onclick="scrollToId('projects')">See work</a>
-          <a href="#contact" class="muted" onclick="scrollToId('contact')">Contact me</a>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
+<!-- ================= BOTTOM NAV =================
+     Order preserved as you requested:
+     Home, Skills, Projects, Contact, About
+-->
 <nav class="bottom-nav" aria-label="Section navigation">
   <button class="nav-btn active" data-target="home">Home</button>
   <button class="nav-btn" data-target="skills">Skills</button>
@@ -284,6 +258,7 @@ const CONFIG = {
   <button class="nav-btn" data-target="about">About</button>
 </nav>
 
+<!-- ================= SCRIPTS ================= -->
 <script>
   // Smooth scroll helper
   function scrollToId(id){
@@ -296,13 +271,13 @@ const CONFIG = {
     }
   }
 
-  // wire nav
+  // wire nav buttons
   document.querySelectorAll('.nav-btn').forEach(btn=>{
     btn.addEventListener('click', ()=> { scrollToId(btn.dataset.target); setActiveBtn(btn); });
   });
   function setActiveBtn(btn){ document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); }
 
-  // IntersectionObserver to reveal
+  // IntersectionObserver to reveal sections and keep nav in sync
   const sections = document.querySelectorAll('[data-section]');
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(entry=>{
@@ -316,7 +291,7 @@ const CONFIG = {
   }, { root:null, rootMargin:'0px', threshold:0.48 });
   sections.forEach(s => io.observe(s));
 
-  // Contact form demo handler
+  // Contact form demo handler (replace with real backend later)
   const form = document.getElementById('contact-form');
   form.addEventListener('submit', (e)=>{
     e.preventDefault();
@@ -325,18 +300,24 @@ const CONFIG = {
     form.reset();
   });
 
-  // inject content from CONFIG
+  // Inject content from CONFIG into DOM
   (function applyConfig(){
     try {
       const c = CONFIG;
+      // Header
       document.getElementById('display-name').textContent = c.name || 'Your name';
       document.getElementById('display-tagline').textContent = c.tagline || '';
       document.getElementById('profile-photo').src = c.photo || '';
+
+      // Email & location
       document.getElementById('email-link').href = 'mailto:' + (c.email || '');
       document.getElementById('email-link').textContent = c.email || '';
       document.getElementById('location-text').textContent = c.location || '';
+
+      // About
       document.getElementById('about-text').textContent = c.about || '';
-      // socials
+
+      // Socials (two places)
       const socialHtml = (s)=> {
         let out = '';
         if(s.linkedin) out += `<a href="${s.linkedin}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.001 5.001A2.5 2.5 0 014.98 3.5zM3 9.25h3.96V21H3V9.25zM10.5 9.25h3.8v1.62h.05c.53-1 1.82-2.06 3.75-2.06 4.01 0 4.75 2.64 4.75 6.07V21h-3.96v-5.35c0-1.276-.023-2.92-1.78-2.92-1.78 0-2.05 1.388-2.05 2.82V21H10.5V9.25z" fill="currentColor"/></svg></a>`;
@@ -346,16 +327,18 @@ const CONFIG = {
       };
       document.getElementById('social-links').innerHTML = socialHtml(c.socials || {});
       document.getElementById('social-links-2').innerHTML = socialHtml(c.socials || {});
+
       // skills
       const skillsGrid = document.getElementById('skills-grid');
       skillsGrid.innerHTML = (c.skills || []).map(s => `<div class="skill"><strong>${s.title}</strong><small>${s.subtitle || ''}</small></div>`).join('');
+
       // projects (with thumbs if present)
       const projectsList = document.getElementById('projects-list');
       projectsList.innerHTML = (c.projects || []).map(p => `<div class="project"><div><div class="thumb">${p.thumb ? `<img src="${p.thumb}" style="width:100%;height:100%;object-fit:cover;display:block;" alt="${p.title}">` : ''}</div><h3>${p.title}</h3><p class="muted">${p.desc}</p></div><div style="display:flex; gap:8px; justify-content:flex-end;"><a href="${p.url || '#'}" target="_blank" rel="noopener" class="muted">View</a></div></div>`).join('');
     } catch(err){ console.error('applyConfig error', err); }
   })();
 
-  // keyboard nav
+  // keyboard nav for accessibility
   (function keyboardNav(){
     const buttons = Array.from(document.querySelectorAll('.nav-btn'));
     buttons.forEach((btn, i) => {
@@ -368,9 +351,10 @@ const CONFIG = {
     });
   })();
 
-  // resize vh fix
+  // small viewport fix for mobile vh
   window.addEventListener('resize', ()=> document.body.style.setProperty('--vh', window.innerHeight/100 + 'px'));
 
 </script>
+
 </body>
 </html>
