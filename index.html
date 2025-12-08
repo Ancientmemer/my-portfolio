@@ -3,15 +3,16 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Eldro — Portfolio</title>
+<title>Adhin Santhosh — Portfolio</title>
 <link rel="icon" href="data:,">
 <style>
   :root{
+    /* Mr Eldro inspired warm palette */
     --bg:#0b0f14;
     --card-bg: rgba(255,255,255,0.06);
     --glass-border: rgba(255,255,255,0.08);
-    --accent1: #ffb86b; /* warm gold */
-    --accent2: #ff6b6b; /* coral */
+    --accent1: #ffcf33; /* yellow */
+    --accent2: #ff5a3c; /* red/orange */
     --muted: #a7b0bf;
     --glass-blur: 12px;
     --nav-height: 72px;
@@ -19,18 +20,18 @@
     font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   }
 
-  /* Page */
-  html,body { height:100%; margin:0; background:
-    radial-gradient(1200px 600px at 10% 20%, rgba(255,107,107,0.06), transparent 8%),
-    radial-gradient(1000px 500px at 90% 80%, rgba(255,184,107,0.04), transparent 8%),
-    var(--bg);
+  html,body {
+    height:100%; margin:0;
+    background:
+      radial-gradient(1200px 600px at 10% 20%, rgba(255,90,60,0.03), transparent 8%),
+      radial-gradient(1000px 500px at 90% 80%, rgba(255,207,51,0.03), transparent 8%),
+      var(--bg);
     color:#e7eef8;
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale;
     scroll-behavior:smooth;
   }
 
-  /* Layout for full-screen stacked sections */
   .section {
     min-height: calc(100vh - var(--nav-height));
     padding: clamp(18px, 3vw, 36px);
@@ -42,7 +43,6 @@
     box-sizing:border-box;
   }
 
-  /* We'll keep content centered, with glass card */
   .card {
     width: min(1100px, 96%);
     background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
@@ -63,349 +63,226 @@
 
   .card.visible { transform: translateY(0); opacity: 1; }
 
-  /* Hero / Home specifics */
-  .hero {
-    gap: 28px;
-  }
-  .hero .left {
-    flex:1 1 340px;
-    min-width:260px;
-  }
-  .hero .right {
-    width: 320px;
-    max-width:36%;
-    min-width:220px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
+  .hero { gap: 28px; }
+  .hero .left { flex:1 1 340px; min-width:260px; }
+  .hero .right { width: 320px; max-width:36%; min-width:220px; display:flex; align-items:center; justify-content:center; }
 
   .avatar {
-    width: 220px;
-    height:220px;
-    border-radius: 18px;
-    overflow:hidden;
-    border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-    display:block;
-    background: linear-gradient(135deg,var(--accent1),var(--accent2));
+    width: 220px; height:220px; border-radius: 18px; overflow:hidden;
+    border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+    display:block; background: linear-gradient(135deg,var(--accent1),var(--accent2));
   }
-
   .avatar img { width:100%; height:100%; object-fit:cover; display:block; }
 
-  h1 {
-    margin:0 0 8px 0;
-    font-size: clamp(26px, 4.2vw, 38px);
-    letter-spacing: -0.02em;
-  }
-  .tagline {
-    color: var(--muted);
-    margin:8px 0 18px 0;
-  }
+  h1 { margin:0 0 8px 0; font-size: clamp(26px, 4.2vw, 38px); letter-spacing: -0.02em; }
+  .tagline { color: var(--muted); margin:8px 0 18px 0; }
   .socials { display:flex; gap:12px; margin-top:8px; }
   .socials a { display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:inherit; opacity:0.95; }
   .socials svg{ width:22px; height:22px; display:block; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4)); }
 
-  /* Skills layout */
-  .skills-grid {
-    display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
-    gap:12px;
-    width:100%;
-  }
-  .skill {
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    border-radius: 12px;
-    padding:12px;
-    border:1px solid rgba(255,255,255,0.04);
-    text-align:center;
-  }
+  .skills-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(140px,1fr)); gap:12px; width:100%; }
+  .skill { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius: 12px; padding:12px; border:1px solid rgba(255,255,255,0.04); text-align:center; }
   .skill strong{ display:block; font-size:16px; margin-bottom:6px; }
-  .skill small{ color:var(--muted); }
+  .skill small{ color:var(--muted); font-size:13px; }
 
-  /* Projects */
-  .projects {
-    display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-    gap:14px;
-    width:100%;
-  }
-  .project {
-    border-radius:12px;
-    overflow:hidden;
-    background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.15));
-    padding:12px;
-    min-height:140px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    border:1px solid rgba(255,255,255,0.04);
-  }
-  .project h3{ margin:0 0 8px 0; }
+  .projects { display:grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap:14px; width:100%; }
+  .project { border-radius:12px; overflow:hidden; background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.15)); padding:12px; min-height:160px; display:flex; flex-direction:column; justify-content:space-between; border:1px solid rgba(255,255,255,0.04); }
+  .project h3{ margin:0 0 8px 0; font-size:16px; }
   .project p{ margin:0; color:var(--muted); font-size:14px; }
+  .project .thumb { width:100%; height:120px; border-radius:10px; overflow:hidden; margin-bottom:10px; background:#111; display:block; }
 
-  /* Contact */
-  .contact-grid {
-    display:grid;
-    grid-template-columns: 1fr 360px;
-    gap:18px;
-    width:100%;
-  }
-  @media(max-width:880px){
-    .contact-grid { grid-template-columns: 1fr; }
-    .hero .right { width: 280px; max-width: 100%; }
-    .avatar { width:180px; height:180px; }
-  }
+  .contact-grid { display:grid; grid-template-columns: 1fr 360px; gap:18px; width:100%; }
+  @media(max-width:880px){ .contact-grid { grid-template-columns: 1fr; } .hero .right { width: 280px; max-width: 100%; } .avatar { width:180px; height:180px; } }
 
-  /* Bottom fixed nav */
-  .bottom-nav {
-    position:fixed;
-    left:50%;
-    transform:translateX(-50%);
-    bottom:14px;
-    z-index:80;
-    display:flex;
-    gap:10px;
-    background: linear-gradient(180deg, rgba(10,12,15,0.65), rgba(10,12,15,0.5));
-    border-radius: 999px;
-    padding:8px;
-    border:1px solid rgba(255,255,255,0.06);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-  }
-  .nav-btn {
-    min-width:86px;
-    padding:10px 14px;
-    border-radius:999px;
-    border: none;
-    background: transparent;
-    color:var(--muted);
-    font-weight:600;
-    cursor:pointer;
-    display:inline-flex;
-    gap:10px;
-    align-items:center;
-    justify-content:center;
-    transition: transform 220ms ease, background 220ms ease, color 220ms ease;
-    user-select:none;
-    font-size:14px;
-  }
+  .bottom-nav { position:fixed; left:50%; transform:translateX(-50%); bottom:14px; z-index:80; display:flex; gap:10px; background: linear-gradient(180deg, rgba(10,12,15,0.65), rgba(10,12,15,0.5)); border-radius: 999px; padding:8px; border:1px solid rgba(255,255,255,0.06); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+  .nav-btn { min-width:86px; padding:10px 14px; border-radius:999px; border: none; background: transparent; color:var(--muted); font-weight:600; cursor:pointer; display:inline-flex; gap:10px; align-items:center; justify-content:center; transition: transform 220ms ease, background 220ms ease, color 220ms ease; user-select:none; font-size:14px; }
   .nav-btn:hover{ transform: translateY(-6px); color: white; }
-  .nav-btn.active {
-    background: linear-gradient(90deg, rgba(255,184,107,0.12), rgba(255,107,107,0.08));
-    color: white;
-    box-shadow: 0 6px 18px rgba(255,120,80,0.06);
-  }
+  .nav-btn.active { background: linear-gradient(90deg, rgba(255,207,51,0.12), rgba(255,90,60,0.08)); color: white; box-shadow: 0 6px 18px rgba(255,150,90,0.06); }
 
-  /* small section title */
-  .section-title{
-    font-size:18px; color:var(--muted); margin-bottom:10px;
-  }
-
-  /* subtle float animation for avatar */
+  .section-title{ font-size:18px; color:var(--muted); margin-bottom:10px; }
   @keyframes floaty { 0% { transform: translateY(0);} 50%{ transform: translateY(-6px);} 100%{ transform: translateY(0);} }
   .avatar { animation: floaty 6s ease-in-out infinite; }
-
-  /* animation when clicking nav: pulse effect */
-  .nav-pulse {
-    position:absolute;
-    inset:0;
-    border-radius:inherit;
-    pointer-events:none;
-    animation: navPulse 600ms ease;
-    background: radial-gradient(circle at 10% 10%, rgba(255,184,107,0.06), transparent 15%);
-  }
+  .nav-pulse { position:absolute; inset:0; border-radius:inherit; pointer-events:none; animation: navPulse 600ms ease; background: radial-gradient(circle at 10% 10%, rgba(255,207,51,0.06), transparent 15%); }
   @keyframes navPulse { from { opacity:1; transform: scale(0.92);} to { opacity:0; transform: scale(1.18);} }
-
-  /* small utilities */
   .muted{ color:var(--muted); }
-  .btn-primary{
-    background: linear-gradient(90deg,var(--accent1),var(--accent2));
-    color:#081018;
-    padding:10px 14px;
-    border-radius:10px;
-    border:none;
-    cursor:pointer;
-    font-weight:700;
-  }
-
+  .btn-primary{ background: linear-gradient(90deg,var(--accent1),var(--accent2)); color:#081018; padding:10px 14px; border-radius:10px; border:none; cursor:pointer; font-weight:700; }
   footer.small { text-align:center; color:var(--muted); margin-top:12px; font-size:13px; }
+
+  /* small responsive tweaks */
+  @media(max-width:520px){
+    .nav-btn { min-width:68px; padding:8px 10px; font-size:13px; }
+    .avatar { width:160px; height:160px; }
+  }
 
 </style>
 </head>
 <body>
 
-  <!-- Sections -->
-  <main id="page">
-    <!-- Home (hero) -->
-    <section id="home" class="section" data-section>
-      <div class="card hero" role="region" aria-label="Home">
-        <div class="left">
-          <h1>Eldro Adhin</h1>
-          <div class="tagline">Front-end developer • Video & Image Editor • UI enthusiast</div>
-          <div class="section-title">Quick links</div>
-          <div class="socials">
-            <!-- Replace href="#" with your real profile links -->
-            <a id="linkedin-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <!-- LinkedIn SVG -->
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.001 5.001A2.5 2.5 0 014.98 3.5zM3 9.25h3.96V21H3V9.25zM10.5 9.25h3.8v1.62h.05c.53-1 1.82-2.06 3.75-2.06 4.01 0 4.75 2.64 4.75 6.07V21h-3.96v-5.35c0-1.276-.023-2.92-1.78-2.92-1.78 0-2.05 1.388-2.05 2.82V21H10.5V9.25z" fill="currentColor"/></svg>
-            </a>
-            <a id="instagram-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <!-- Instagram SVG -->
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 6.25A4.75 4.75 0 1016.75 13 4.75 4.75 0 0012 8.25zM17.5 6.25a.75.75 0 11-.75-.75.75.75 0 01.75.75z" fill="currentColor"/></svg>
-            </a>
-            <a id="github-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <!-- GitHub SVG -->
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.64.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.93 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.28.1-2.68 0 0 .84-.27 2.75 1.02A9.5 9.5 0 0112 6.8c.85.004 1.71.115 2.51.337 1.9-1.29 2.74-1.02 2.74-1.02.56 1.4.21 2.43.1 2.68.64.7 1.03 1.59 1.03 2.68 0 3.83-2.35 4.67-4.59 4.92.36.31.68.92.68 1.86v2.76c0 .26.18.57.69.48A10 10 0 0012 2z" fill="currentColor"/></svg>
-            </a>
-          </div>
+<script>
+/* =========================
+   CONFIG — edit only here
+   ========================= */
+const CONFIG = {
+  name: "Adhin Santhosh",
+  tagline: "Front-end dev • Video & Image Editor • UI enthusiast",
+  // profile photo (square recommended)
+  photo: "https://graph.org/file/45fe2a7b75a1d47e0a1a2-f3e051c26b069156e0.jpg",
+  email: "adhynsanthosh@gmail.com",
+  location: "Kollam, India",
+  socials: {
+    linkedin: "https://www.linkedin.com/in/adhin-santhosh-770709392?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    instagram: "https://instagram.com/iam_eldro",
+    github: "https://github.com/Adhin-Santhosh"
+  },
+  skills: [
+    {title:"HTML, CSS", subtitle:"Responsive layouts"},
+    {title:"Python, C++, C", subtitle:"General programming & scripting"},
+    {title:"Communication", subtitle:"Strong verbal & written skills"},
+    {title:"Problem Solving", subtitle:"Algorithms & debugging"}
+  ],
+  projects: [
+    {
+      title:"Glyphmoji",
+      desc:"Website — creative emoji & glyph tool.",
+      url:"https://glyphmoji.vercel.app",
+      thumb: "https://graph.org/file/c64d5bd5d9945fc34cc9c-4e4237f9737d45c2d5.jpg"
+    },
+    {
+      title:"Auto Filter Bot",
+      desc:"Telegram Auto Filter Bot — moderation & filtering.",
+      url:"https://t.me/cc_autobot",
+      thumb: "https://graph.org/file/62dce81f2e8f3b37afaa4-f73b5a9c2699775508.jpg"
+    },
+    {
+      title:"Glyphmoji TG Bot",
+      desc:"Telegram bot for Glyphmoji features.",
+      url:"https://t.me/Glyphmoji_bot",
+      thumb: "https://graph.org/file/f30fd710c03e8579242e7-a95f18d8c1f13e9197.jpg"
+    },
+    {
+      title:"Basic Auto Filter Bot (Repo)",
+      desc:"GitHub repo for a basic filter bot.",
+      url:"https://github.com/Ancientmemer/eldryo",
+      thumb: ""
+    }
+  ],
+  about: "I'm a BCA student at the University of Kerala (UIT Adoor), batch 2025–29. I build front-end interfaces, edit videos and images, and enjoy crafting motion-forward UI. I like solving problems with clean code and practical design — currently open for freelance work and collaborations."
+};
+/* End CONFIG */
+</script>
 
-          <div style="margin-top:20px;">
-            <button class="btn-primary" onclick="scrollToId('projects')">See Projects</button>
-          </div>
+<main id="page">
+  <!-- Home -->
+  <section id="home" class="section" data-section>
+    <div class="card hero" role="region" aria-label="Home">
+      <div class="left">
+        <h1 id="display-name">Adhin Santhosh</h1>
+        <div id="display-tagline" class="tagline">Front-end dev • Video & Image Editor • UI enthusiast</div>
 
-          <footer class="small">Designed with glassmorphism • Animations enabled</footer>
+        <div class="section-title">Quick links</div>
+        <div class="socials" id="social-links"></div>
+
+        <div style="margin-top:20px;">
+          <button class="btn-primary" onclick="scrollToId('projects')">See Projects</button>
         </div>
 
-        <div class="right">
-          <!-- Avatar: Replace the src with your photo -->
-          <div class="avatar" title="Your photo">
-            <img id="profile-photo" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=1200&q=80&auto=format&fit=crop" alt="Your photo — replace this image">
-          </div>
+        <footer class="small">Designed with glassmorphism • Animations enabled</footer>
+      </div>
+
+      <div class="right">
+        <div class="avatar" title="Your photo">
+          <img id="profile-photo" src="" alt="Profile photo">
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Skills -->
-    <section id="skills" class="section" data-section>
-      <div class="card" role="region" aria-label="Skills">
-        <div style="width:100%;">
-          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
-            <div>
-              <div class="section-title">Skills</div>
-              <h2 style="margin:0 0 10px 0;">What I do</h2>
-              <p class="muted" style="margin:0 0 14px 0;">Front-end, editing, and UI design — I focus on clarity and motion.</p>
-            </div>
-            <div style="display:flex; gap:10px; align-items:center;">
-              <button class="btn-primary" onclick="scrollToId('contact')">Hire Me</button>
-            </div>
+  <!-- Skills -->
+  <section id="skills" class="section" data-section>
+    <div class="card" role="region" aria-label="Skills">
+      <div style="width:100%;">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+          <div>
+            <div class="section-title">Skills</div>
+            <h2 style="margin:0 0 10px 0;">What I do</h2>
+            <p class="muted" style="margin:0 0 14px 0;">Front-end, editing, and UI design — I focus on clarity and motion.</p>
           </div>
-
-          <div class="skills-grid" style="margin-top:18px;">
-            <div class="skill"><strong>HTML & CSS</strong><small>Responsive, modern layouts</small></div>
-            <div class="skill"><strong>JavaScript</strong><small>Interactive UI, animations</small></div>
-            <div class="skill"><strong>React / Next.js</strong><small>SPA & SSR apps</small></div>
-            <div class="skill"><strong>Figma / UI</strong><small>Prototyping & design systems</small></div>
-            <div class="skill"><strong>Video Editing</strong><small>Premiere & After Effects</small></div>
-            <div class="skill"><strong>Image Editing</strong><small>Photoshop & Lightroom</small></div>
+          <div style="display:flex; gap:10px; align-items:center;">
+            <button class="btn-primary" onclick="scrollToId('contact')">Hire Me</button>
           </div>
         </div>
+
+        <div class="skills-grid" id="skills-grid" style="margin-top:18px;"></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Projects -->
-    <section id="projects" class="section" data-section>
-      <div class="card" role="region" aria-label="Projects">
-        <div style="width:100%;">
-          <div class="section-title">Projects</div>
-          <h2 style="margin:0 0 10px 0;">Selected Works</h2>
-          <div class="projects" style="margin-top:12px;">
-            <div class="project">
-              <div>
-                <h3>MovieMafia — Streaming UI</h3>
-                <p class="muted">A modern streaming landing & search UI (hosted on GitHub Pages).</p>
-              </div>
-              <div style="display:flex; gap:8px; justify-content:flex-end;">
-                <a href="#" target="_blank" rel="noopener" class="muted">View</a>
-              </div>
+  <!-- Projects -->
+  <section id="projects" class="section" data-section>
+    <div class="card" role="region" aria-label="Projects">
+      <div style="width:100%;">
+        <div class="section-title">Projects</div>
+        <h2 style="margin:0 0 10px 0;">Selected Works</h2>
+        <div class="projects" id="projects-list" style="margin-top:12px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section" data-section>
+    <div class="card" role="region" aria-label="Contact">
+      <div style="width:100%;">
+        <div class="section-title">Contact</div>
+        <h2 style="margin:0 0 10px 0;">Let's build something</h2>
+        <div class="contact-grid" style="margin-top:12px;">
+          <div>
+            <p class="muted">Prefer email? Drop a message and I’ll reply fast.</p>
+            <p style="margin-top:16px;"><strong>Email</strong><br><a id="email-link" href="#" class="muted">adhynsanthosh@gmail.com</a></p>
+            <p style="margin-top:10px;"><strong>Location</strong><br><span id="location-text" class="muted">Kollam, India</span></p>
+
+            <div style="margin-top:18px;">
+              <small class="muted">Or reach via socials below</small>
+              <div class="socials" style="margin-top:8px;" id="social-links-2"></div>
             </div>
-
-            <div class="project">
-              <div>
-                <h3>ChillChat — Social UI</h3>
-                <p class="muted">Chat app UI with cards, coins, and rewards system.</p>
-              </div>
-              <div style="display:flex; gap:8px; justify-content:flex-end;">
-                <a href="#" target="_blank" rel="noopener" class="muted">View</a>
-              </div>
-            </div>
-
-            <div class="project">
-              <div>
-                <h3>Editing Reel</h3>
-                <p class="muted">Video edits and motion design for social platforms.</p>
-              </div>
-              <div style="display:flex; gap:8px; justify-content:flex-end;">
-                <a href="#" target="_blank" rel="noopener" class="muted">Watch</a>
-              </div>
-            </div>
-
           </div>
+
+          <form id="contact-form" style="display:flex; flex-direction:column; gap:10px;">
+            <input required name="name" placeholder="Your name" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;" />
+            <input required name="email" placeholder="Your email" type="email" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;" />
+            <textarea required name="message" placeholder="Brief message" rows="5" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;"></textarea>
+            <div style="display:flex; gap:10px; justify-content:flex-end;">
+              <button type="submit" class="btn-primary">Send</button>
+            </div>
+          </form>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Contact -->
-    <section id="contact" class="section" data-section>
-      <div class="card" role="region" aria-label="Contact">
-        <div style="width:100%;">
-          <div class="section-title">Contact</div>
-          <h2 style="margin:0 0 10px 0;">Let's build something</h2>
-          <div class="contact-grid" style="margin-top:12px;">
-            <div>
-              <p class="muted">Prefer email? Drop a message and I’ll reply fast.</p>
-              <p style="margin-top:16px;"><strong>Email</strong><br><a href="mailto:your.email@example.com" class="muted">your.email@example.com</a></p>
+  <!-- About -->
+  <section id="about" class="section" data-section>
+    <div class="card" role="region" aria-label="About">
+      <div style="width:100%;">
+        <div class="section-title">About</div>
+        <h2 style="margin:0 0 10px 0;">A little story</h2>
+        <p id="about-text" class="muted"></p>
 
-              <p style="margin-top:10px;"><strong>Location</strong><br><span class="muted">India</span></p>
-
-              <div style="margin-top:18px;">
-                <small class="muted">Or reach via socials below</small>
-                <div class="socials" style="margin-top:8px;">
-                  <a id="linkedin-link-2" href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
-                  <a id="instagram-link-2" href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
-                  <a id="github-link-2" href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
-                </div>
-              </div>
-            </div>
-
-            <form id="contact-form" style="display:flex; flex-direction:column; gap:10px;">
-              <input required name="name" placeholder="Your name" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;" />
-              <input required name="email" placeholder="Your email" type="email" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;" />
-              <textarea required name="message" placeholder="Brief message" rows="5" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;"></textarea>
-              <div style="display:flex; gap:10px; justify-content:flex-end;">
-                <button type="submit" class="btn-primary">Send</button>
-              </div>
-            </form>
-          </div>
+        <div style="margin-top:18px; display:flex; gap:12px;">
+          <a href="#projects" class="btn-primary" onclick="scrollToId('projects')">See work</a>
+          <a href="#contact" class="muted" onclick="scrollToId('contact')">Contact me</a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+</main>
 
-    <!-- About -->
-    <section id="about" class="section" data-section>
-      <div class="card" role="region" aria-label="About">
-        <div style="width:100%;">
-          <div class="section-title">About</div>
-          <h2 style="margin:0 0 10px 0;">A little story</h2>
-          <p class="muted">I build clean, thoughtful interfaces and edit videos/images with a taste for motion and mood. I love combining design with practical code to ship delightful experiences. Currently open for freelance and collabs.</p>
-
-          <div style="margin-top:18px; display:flex; gap:12px;">
-            <a href="#" class="btn-primary" onclick="scrollToId('projects')">See work</a>
-            <a href="#" class="muted" onclick="scrollToId('contact')">Contact me</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Bottom nav: order MUST match your requested order -->
-  <nav class="bottom-nav" aria-label="Section navigation">
-    <button class="nav-btn active" data-target="home">Home</button>
-    <button class="nav-btn" data-target="skills">Skills</button>
-    <button class="nav-btn" data-target="projects">Projects</button>
-    <button class="nav-btn" data-target="contact">Contact</button>
-    <button class="nav-btn" data-target="about">About</button>
-  </nav>
+<nav class="bottom-nav" aria-label="Section navigation">
+  <button class="nav-btn active" data-target="home">Home</button>
+  <button class="nav-btn" data-target="skills">Skills</button>
+  <button class="nav-btn" data-target="projects">Projects</button>
+  <button class="nav-btn" data-target="contact">Contact</button>
+  <button class="nav-btn" data-target="about">About</button>
+</nav>
 
 <script>
   // Smooth scroll helper
@@ -413,81 +290,72 @@
     const el = document.getElementById(id);
     if(!el) return;
     el.scrollIntoView({behavior:'smooth', block:'start'});
-    // small pulse effect on nav (visual)
     const btn = [...document.querySelectorAll('.nav-btn')].find(b=>b.dataset.target===id);
     if(btn){
-      const p = document.createElement('div');
-      p.className='nav-pulse';
-      btn.appendChild(p);
-      setTimeout(()=> p.remove(), 650);
+      const p = document.createElement('div'); p.className='nav-pulse'; btn.appendChild(p); setTimeout(()=> p.remove(), 650);
     }
   }
 
-  // Wire nav buttons
+  // wire nav
   document.querySelectorAll('.nav-btn').forEach(btn=>{
-    btn.addEventListener('click', (e)=>{
-      const target = btn.dataset.target;
-      scrollToId(target);
-      setActiveBtn(btn);
-    });
+    btn.addEventListener('click', ()=> { scrollToId(btn.dataset.target); setActiveBtn(btn); });
   });
+  function setActiveBtn(btn){ document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); }
 
-  function setActiveBtn(btn){
-    document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-  }
-
-  // IntersectionObserver to mark active nav and reveal cards
+  // IntersectionObserver to reveal
   const sections = document.querySelectorAll('[data-section]');
-  const obsOptions = { root: null, rootMargin: '0px', threshold: 0.48 };
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(entry=>{
       if(entry.isIntersecting){
-        // reveal card
-        const card = entry.target.querySelector('.card');
-        if(card) card.classList.add('visible');
-
-        // highlight nav
+        const card = entry.target.querySelector('.card'); if(card) card.classList.add('visible');
         const id = entry.target.id;
         const btn = [...document.querySelectorAll('.nav-btn')].find(b=>b.dataset.target===id);
         if(btn) setActiveBtn(btn);
       }
     });
-  }, obsOptions);
-
+  }, { root:null, rootMargin:'0px', threshold:0.48 });
   sections.forEach(s => io.observe(s));
 
-  // Contact form (simple front-end handler — replace with your API)
+  // Contact form demo handler
   const form = document.getElementById('contact-form');
   form.addEventListener('submit', (e)=>{
     e.preventDefault();
     const data = new FormData(form);
-    // For now we'll just show a quick message — integrate your email endpoint later
     alert('Thanks, '+ (data.get('name') || 'there') + '! Message sent (demo). Replace with real backend to receive messages.');
     form.reset();
   });
 
-  // Replace social link duplicates quickly if user wants a central set
-  function setSocialLinks({linkedin, instagram, github}){
-    ['linkedin-link','linkedin-link-2'].forEach(id=>{ const a=document.getElementById(id); if(a) a.href = linkedin || '#'; });
-    ['instagram-link','instagram-link-2'].forEach(id=>{ const a=document.getElementById(id); if(a) a.href = instagram || '#'; });
-    ['github-link','github-link-2'].forEach(id=>{ const a=document.getElementById(id); if(a) a.href = github || '#'; });
-  }
-
-  // OPTIONAL: set sample social links from page URL hash (convenience)
-  (function initFromHash(){
-    // Example: #linkedin=https://...&instagram=...&github=...
-    const hash = location.hash.slice(1);
-    if(!hash) return;
-    const params = new URLSearchParams(hash.replaceAll('&amp;','&'));
-    setSocialLinks({
-      linkedin: params.get('linkedin'),
-      instagram: params.get('instagram'),
-      github: params.get('github')
-    });
+  // inject content from CONFIG
+  (function applyConfig(){
+    try {
+      const c = CONFIG;
+      document.getElementById('display-name').textContent = c.name || 'Your name';
+      document.getElementById('display-tagline').textContent = c.tagline || '';
+      document.getElementById('profile-photo').src = c.photo || '';
+      document.getElementById('email-link').href = 'mailto:' + (c.email || '');
+      document.getElementById('email-link').textContent = c.email || '';
+      document.getElementById('location-text').textContent = c.location || '';
+      document.getElementById('about-text').textContent = c.about || '';
+      // socials
+      const socialHtml = (s)=> {
+        let out = '';
+        if(s.linkedin) out += `<a href="${s.linkedin}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.001 5.001A2.5 2.5 0 014.98 3.5zM3 9.25h3.96V21H3V9.25zM10.5 9.25h3.8v1.62h.05c.53-1 1.82-2.06 3.75-2.06 4.01 0 4.75 2.64 4.75 6.07V21h-3.96v-5.35c0-1.276-.023-2.92-1.78-2.92-1.78 0-2.05 1.388-2.05 2.82V21H10.5V9.25z" fill="currentColor"/></svg></a>`;
+        if(s.instagram) out += `<a href="${s.instagram}" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 6.25A4.75 4.75 0 1016.75 13 4.75 4.75 0 0012 8.25zM17.5 6.25a.75.75 0 11-.75-.75.75.75 0 01.75.75z" fill="currentColor"/></svg></a>`;
+        if(s.github) out += `<a href="${s.github}" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.64.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.93 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.28.1-2.68 0 0 .84-.27 2.75 1.02A9.5 9.5 0 0112 6.8c.85.004 1.71.115 2.51.337 1.9-1.29 2.74-1.02 2.74-1.02.56 1.4.21 2.43.1 2.68.64.7 1.03 1.59 1.03 2.68 0 3.83-2.35 4.67-4.59 4.92.36.31.68.92.68 1.86v2.76c0 .26.18.57.69.48A10 10 0 0012 2z" fill="currentColor"/></svg></a>`;
+        return out;
+      };
+      document.getElementById('social-links').innerHTML = socialHtml(c.socials || {});
+      document.getElementById('social-links-2').innerHTML = socialHtml(c.socials || {});
+      // skills
+      const skillsGrid = document.getElementById('skills-grid');
+      skillsGrid.innerHTML = (c.skills || []).map(s => `<div class="skill"><strong>${s.title}</strong><small>${s.subtitle || ''}</small></div>`).join('');
+      // projects (with thumbs if present)
+      const projectsList = document.getElementById('projects-list');
+      projectsList.innerHTML = (c.projects || []).map(p => `<div class="project"><div><div class="thumb">${p.thumb ? `<img src="${p.thumb}" style="width:100%;height:100%;object-fit:cover;display:block;" alt="${p.title}">` : ''}</div><h3>${p.title}</h3><p class="muted">${p.desc}</p></div><div style="display:flex; gap:8px; justify-content:flex-end;"><a href="${p.url || '#'}" target="_blank" rel="noopener" class="muted">View</a></div></div>`).join('');
+    } catch(err){ console.error('applyConfig error', err); }
   })();
 
-  // Accessibility: keyboard nav for bottom nav using arrows
+  // keyboard nav
   (function keyboardNav(){
     const buttons = Array.from(document.querySelectorAll('.nav-btn'));
     buttons.forEach((btn, i) => {
@@ -500,8 +368,9 @@
     });
   })();
 
-  // small UX: when resizing, ensure correct section height
+  // resize vh fix
   window.addEventListener('resize', ()=> document.body.style.setProperty('--vh', window.innerHeight/100 + 'px'));
+
 </script>
 </body>
 </html>
