@@ -121,6 +121,30 @@ nav button.active{
   h1{font-size:26px}
   .hero{justify-content:center;text-align:center}
 }
+
+.project-box{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.project-btn{
+  margin-top:auto;
+  align-self:flex-start;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:600;
+  padding:8px 14px;
+  border-radius:999px;
+  color:#081018;
+  background:linear-gradient(90deg,var(--accent1), var(--accent2));
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+
+.project-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 6px 16px rgba(255,150,90,.3);
+}
 </style>
 </head>
 
@@ -173,11 +197,16 @@ nav button.active{
     <div class="small-title">Projects</div>
     <h2>Sample Work</h2>
 
-    <div class="grid">
-      <div class="box">
-        <strong>Business Website (Demo)</strong>
-        <p>Responsive demo website.</p>
-      </div>
+<div class="box project-box">
+  <strong>Business Website (Demo)</strong>
+  <p>Responsive demo website.</p>
+
+  <a href="https://eldro-cafe.vercel.app" 
+     target="_blank" 
+     class="project-btn">
+     View Project
+  </a>
+</div>
       <div class="box">
         <strong>Landing Page (Demo)</strong>
         <p>Simple promotional website.</p>
