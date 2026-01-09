@@ -1,304 +1,230 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Adhin Santhosh — Web Developer</title>
-<link rel="icon" href="data:,">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adhin Santhosh | Web Developer</title>
 
 <style>
 :root{
   --bg:#0b0f14;
-  --card-bg: rgba(255,255,255,0.06);
-  --glass-border: rgba(255,255,255,0.08);
+  --card:#11161d;
+  --border:rgba(255,255,255,.08);
   --accent1:#ffcf33;
   --accent2:#ff5a3c;
   --muted:#a7b0bf;
-  --shadow:0 10px 30px rgba(2,6,23,.6);
-  --nav-height:72px;
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  font-family:Inter,system-ui,Arial;
 }
 
-html,body{
-  margin:0;height:100%;
-  background:
-    radial-gradient(1200px 600px at 10% 20%, rgba(255,90,60,.04), transparent 8%),
-    radial-gradient(1000px 500px at 90% 80%, rgba(255,207,51,.04), transparent 8%),
-    var(--bg);
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--bg);
   color:#e7eef8;
-  scroll-behavior:smooth;
 }
 
-.section{
-  min-height:calc(100vh - var(--nav-height));
-  padding:clamp(18px,3vw,36px);
+/* ---------- SECTIONS ---------- */
+section{
+  min-height:100vh;
+  padding:24px;
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
 }
 
 .card{
-  width:min(1100px,96%);
+  width:100%;
+  max-width:1000px;
   background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));
-  border:1px solid var(--glass-border);
-  border-radius:16px;
-  padding:clamp(18px,3vw,40px);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:24px;
+}
+
+/* ---------- TEXT ---------- */
+h1{margin:0;font-size:32px}
+h2{margin:0 0 10px}
+.small-title{color:var(--muted);font-size:14px}
+p{color:var(--muted);line-height:1.6}
+
+/* ---------- BUTTON ---------- */
+.btn{
+  display:inline-block;
+  background:linear-gradient(90deg,var(--accent1),var(--accent2));
+  color:#081018;
+  padding:12px 18px;
+  border-radius:12px;
+  font-weight:700;
+  text-decoration:none;
+  margin-top:12px;
+}
+
+/* ---------- HERO ---------- */
+.hero{
   display:flex;
   gap:24px;
   flex-wrap:wrap;
-  box-shadow:var(--shadow);
-  opacity:0;
-  transform:translateY(12px);
-  transition:.6s ease;
+  align-items:center;
 }
-.card.visible{opacity:1;transform:none}
-
-.hero .left{flex:1 1 320px}
-.hero .right{width:280px;display:flex;justify-content:center}
-
-.avatar{
-  width:200px;height:200px;
+.hero img{
+  width:200px;
+  height:200px;
   border-radius:16px;
-  overflow:hidden;
-  background:linear-gradient(135deg,var(--accent1),var(--accent2));
-  animation:floaty 6s ease-in-out infinite;
-}
-.avatar img{width:100%;height:100%;object-fit:cover}
-
-@keyframes floaty{
-  0%{transform:translateY(0)}
-  50%{transform:translateY(-6px)}
-  100%{transform:translateY(0)}
+  object-fit:cover;
 }
 
-h1{margin:0;font-size:clamp(26px,4vw,38px)}
-h2{margin:0 0 10px 0}
-.tagline{color:var(--muted);margin:10px 0 18px}
-
-.btn-primary{
-  background:linear-gradient(90deg,var(--accent1),var(--accent2));
-  color:#081018;
-  border:none;
-  padding:12px 16px;
-  border-radius:10px;
-  font-weight:700;
-  cursor:pointer;
-}
-
-.section-title{color:var(--muted);font-size:14px;margin-bottom:6px}
-
-.skills-grid,.projects{
+/* ---------- SERVICES ---------- */
+.grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:14px;
-  width:100%;
+  gap:16px;
+  margin-top:16px;
 }
-
-.skill,.project{
+.box{
   background:rgba(255,255,255,.03);
-  border:1px solid rgba(255,255,255,.05);
-  border-radius:12px;
-  padding:14px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
 }
 
-.skill strong{display:block;margin-bottom:6px}
-.skill small,.project p{color:var(--muted);font-size:14px}
-
-.project .thumb{
-  height:120px;
-  border-radius:10px;
-  overflow:hidden;
-  margin-bottom:10px;
-  background:#111;
-}
-.project img{width:100%;height:100%;object-fit:cover}
-
-.bottom-nav{
+/* ---------- NAV ---------- */
+nav{
   position:fixed;
   bottom:14px;
   left:50%;
   transform:translateX(-50%);
-  display:flex;
-  gap:10px;
+  background:rgba(15,18,24,.8);
+  backdrop-filter:blur(8px);
   padding:8px;
   border-radius:999px;
-  background:rgba(10,12,15,.6);
-  backdrop-filter:blur(8px);
-  border:1px solid rgba(255,255,255,.06);
+  display:flex;
+  gap:10px;
+  border:1px solid var(--border);
 }
-
-.nav-btn{
-  padding:10px 14px;
-  border-radius:999px;
+nav button{
   background:none;
   border:none;
   color:var(--muted);
-  font-weight:600;
+  padding:10px 14px;
+  border-radius:999px;
   cursor:pointer;
+  font-weight:600;
 }
-.nav-btn.active{
+nav button.active{
   background:linear-gradient(90deg,rgba(255,207,51,.15),rgba(255,90,60,.12));
   color:#fff;
 }
 
-.muted{color:var(--muted)}
-
-@media(max-width:700px){
-  .hero .right{width:100%}
-  .avatar{width:170px;height:170px}
+/* ---------- MOBILE ---------- */
+@media(max-width:600px){
+  h1{font-size:26px}
+  .hero{justify-content:center;text-align:center}
 }
 </style>
 </head>
 
 <body>
 
-<script>
-const CONFIG = {
-  name: "Adhin Santhosh",
-  tagline: "I build fast, simple websites for small businesses & creators.",
-  photo: "PICS/IMG_20251209_142706_963.jpg",
-  email: "adhynsanthosh@gmail.com",
-  location: "Kollam, India",
-
-  socials: {
-    instagram: "https://instagram.com/iam_eldro",
-    github: "https://github.com/Adhin-Santhosh",
-    linkedin: "https://www.linkedin.com/in/adhin-santhosh-770709392"
-  },
-
-  skills: [
-    { title:"Business Websites", subtitle:"Clean & responsive HTML/CSS sites" },
-    { title:"Landing Pages", subtitle:"Fast-loading promotional pages" },
-    { title:"Free Hosting Setup", subtitle:"Vercel / GitHub Pages" },
-    { title:"Client Communication", subtitle:"Clear updates & quick delivery" }
-  ],
-
-  projects: [
-    {
-      title:"Business Website (Demo)",
-      desc:"Responsive demo website for a small business.",
-      url:"https://glyphmoji.vercel.app",
-      thumb:"PICS/IMG_20251209_142729_569.jpg"
-    },
-    {
-      title:"Landing Page (Demo)",
-      desc:"Simple promotional landing page.",
-      url:"https://glyphmoji.vercel.app",
-      thumb:"PICS/IMG_20251209_142726_342.jpg"
-    }
-  ],
-
-  about:
-    "I help small businesses and individuals get clean, responsive websites that work smoothly on all devices. My focus is simplicity, speed, and affordability. Free hosting options available. Open for freelance work."
-};
-</script>
-
-<main>
-
 <!-- HOME -->
-<section id="home" class="section" data-section>
+<section id="home">
   <div class="card hero">
-    <div class="left">
-      <h1 id="name"></h1>
-      <div class="tagline" id="tagline"></div>
-      <button class="btn-primary" onclick="scrollToId('contact')">Get a Website</button>
-      <p class="muted" style="margin-top:16px">Affordable • Fast delivery • Free hosting</p>
+    <div>
+      <h1>Adhin Santhosh</h1>
+      <p>I build fast, simple websites for small businesses & creators.</p>
+      <a class="btn" href="#contact">Get a Website</a>
+      <p class="small-title">Affordable • Fast delivery • Free hosting</p>
     </div>
-    <div class="right">
-      <div class="avatar"><img id="photo" alt="Profile"></div>
-    </div>
+    <img src="PICS/IMG_20251209_142706_963.jpg" alt="Adhin">
   </div>
 </section>
 
 <!-- SERVICES -->
-<section id="skills" class="section" data-section>
+<section id="services">
   <div class="card">
-    <div style="width:100%">
-      <div class="section-title">Services</div>
-      <h2>What I Offer</h2>
-      <p class="muted">Simple website solutions focused on business needs.</p>
-      <div class="skills-grid" id="skills"></div>
+    <div class="small-title">Services</div>
+    <h2>What I Offer</h2>
+    <p>Simple website solutions focused on business needs.</p>
+
+    <div class="grid">
+      <div class="box">
+        <strong>Business Websites</strong>
+        <p>Clean, responsive HTML & CSS sites.</p>
+      </div>
+      <div class="box">
+        <strong>Landing Pages</strong>
+        <p>Fast promotional pages.</p>
+      </div>
+      <div class="box">
+        <strong>Free Hosting</strong>
+        <p>Vercel / GitHub Pages setup.</p>
+      </div>
+      <div class="box">
+        <strong>Client Support</strong>
+        <p>Clear communication & quick delivery.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="section" data-section>
+<section id="projects">
   <div class="card">
-    <div style="width:100%">
-      <div class="section-title">Projects</div>
-      <h2>Sample Work</h2>
-      <div class="projects" id="projects"></div>
+    <div class="small-title">Projects</div>
+    <h2>Sample Work</h2>
+
+    <div class="grid">
+      <div class="box">
+        <strong>Business Website (Demo)</strong>
+        <p>Responsive demo website.</p>
+      </div>
+      <div class="box">
+        <strong>Landing Page (Demo)</strong>
+        <p>Simple promotional website.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="section" data-section>
+<section id="contact">
   <div class="card">
-    <div style="width:100%">
-      <div class="section-title">Contact</div>
-      <h2>Need a website for your business?</h2>
-      <p class="muted">Email me and I’ll reply quickly.</p>
-      <p><strong>Email:</strong> <a id="email" class="muted"></a></p>
-      <p><strong>Location:</strong> <span id="location" class="muted"></span></p>
-    </div>
+    <div class="small-title">Contact</div>
+    <h2>Need a website for your business?</h2>
+    <p>Email me and I’ll reply quickly.</p>
+    <p><strong>Email:</strong> adhynsanthosh@gmail.com</p>
+    <p><strong>Location:</strong> Kollam, India</p>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="section" data-section>
+<section id="about">
   <div class="card">
-    <div style="width:100%">
-      <div class="section-title">About</div>
-      <h2>About My Work</h2>
-      <p id="about" class="muted"></p>
-    </div>
+    <div class="small-title">About</div>
+    <h2>About My Work</h2>
+    <p>
+      I help small businesses and individuals get clean, responsive websites
+      that work smoothly on all devices. My focus is speed, simplicity,
+      and affordability. Free hosting options available.
+    </p>
   </div>
 </section>
 
-</main>
-
-<nav class="bottom-nav">
-  <button class="nav-btn active" onclick="scrollToId('home')">Home</button>
-  <button class="nav-btn" onclick="scrollToId('skills')">Services</button>
-  <button class="nav-btn" onclick="scrollToId('projects')">Projects</button>
-  <button class="nav-btn" onclick="scrollToId('contact')">Contact</button>
-  <button class="nav-btn" onclick="scrollToId('about')">About</button>
+<!-- NAV -->
+<nav>
+  <button onclick="go('home')" class="active">Home</button>
+  <button onclick="go('services')">Services</button>
+  <button onclick="go('projects')">Projects</button>
+  <button onclick="go('contact')">Contact</button>
+  <button onclick="go('about')">About</button>
 </nav>
 
 <script>
-function scrollToId(id){
+function go(id){
   document.getElementById(id).scrollIntoView({behavior:'smooth'});
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
 }
-
-const c = CONFIG;
-name.textContent = c.name;
-tagline.textContent = c.tagline;
-photo.src = c.photo;
-email.textContent = c.email;
-email.href = "mailto:"+c.email;
-location.textContent = c.location;
-about.textContent = c.about;
-
-skills.innerHTML = c.skills.map(s =>
-  `<div class="skill"><strong>${s.title}</strong><small>${s.subtitle}</small></div>`
-).join("");
-
-projects.innerHTML = c.projects.map(p =>
-  `<div class="project">
-    <div class="thumb"><img src="${p.thumb}" alt=""></div>
-    <h3>${p.title}</h3>
-    <p>${p.desc}</p>
-  </div>`
-).join("");
-
-const io = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting) e.target.querySelector('.card').classList.add('visible');
-  });
-},{threshold:.3});
-document.querySelectorAll('[data-section]').forEach(s=>io.observe(s));
 </script>
 
 </body>
